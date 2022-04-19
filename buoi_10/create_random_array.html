@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <form action="">
+          <label for="number">Pls enter a number</label>
+          <input type="number" id="number" placeholder="enter a number">
+
+          <button type="button" onclick=phat_sinh() id="btn" >Phat sinh ra mang</button>
+     </form>
+
+     <p id="Result"></p>
+
+     <script>
+
+          // Trigger function() by Enter key()
+          const trigger = document.getElementById('number');
+          trigger.addEventListener("keydown", function(event)
+          {
+               if (event.keyCode == 13){
+                    event.preventDefault();
+                    phat_sinh();
+                    return false; 
+               }
+          })
+
+          function phat_sinh(){
+               let mang = [];
+               let chuoi= ' ';
+               let value  = document.getElementById("number").value ;
+
+               for( let i = 0; i < value; i++){
+                    mang.push(Math.round(Math.random()*10 + 1));
+               }
+
+               
+               
+               for (let i = 0; i < value; i++){
+                    chuoi += mang[i] + '<br>';
+               }
+
+               document.getElementById("number").value = ' ';
+
+               document.getElementById("Result").innerHTML = chuoi;
+
+               
+               
+          }
+     </script>
+    
+
+
+
+     
+
+
+</body>
+</html>
